@@ -31,5 +31,15 @@ def compare_fp_results(file1, file2):
 file1 = "colab_large.txt"  # 第一個 FP-Growth 結果文件
 file2 = "test_large.txt"  # 第二個 FP-Growth 結果文件
 
+# in Colab
+# 設定 Google Drive 檔案路徑
+# file1 = "/content/drive/MyDrive/Colab Notebooks/test_FP.txt"
+# file2 = "/content/drive/MyDrive/Colab Notebooks/test2.txt"
+
+
 differences_df = compare_fp_results(file1, file2)
-print(differences_df)  # 或者使用 GUI 來顯示差異
+if not differences_df.empty:
+  print(differences_df)  # 或者使用 GUI 來顯示差異
+else:
+  print("沒有差異")
+
