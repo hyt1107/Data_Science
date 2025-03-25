@@ -10,8 +10,10 @@
 #include <set>
 #include <map>
 #include <cassert>
+#include <chrono>
 
 using namespace std;
+using namespace std::chrono;
 
 struct FPNode {
     int item;
@@ -183,6 +185,7 @@ int main(int argc, char* argv[]) {
         cerr << "Usage: " << argv[0] << " [min_support] [input_file] [output_file]" << endl;
         return 1;
     }
+    auto start_time = high_resolution_clock::now();
 
     double min_support = stod(argv[1]);
     string input_filename = argv[2];
@@ -280,6 +283,10 @@ int main(int argc, char* argv[]) {
         outfile << pattern_str << ":" << fixed << setprecision(4) << support << "\n";
     }
     outfile.close();
+
+    auto end_time = high_resolution_clock::now();
+    double elapsed_time = duration<double>(end_time - start_time).count();
+    cout << "Execution time: " << elapsed_time << " seconds" << endl;
 
     return 0;
 }
