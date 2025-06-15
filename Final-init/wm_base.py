@@ -137,7 +137,7 @@ class WatermarkTask(abc.ABC):
 
     @final
     def prune_attack(self, model: nn.Module, prune_percentage: float = 0.50) -> nn.Module:
-        """
+        """ 
         Prune (remove) a percentage of the smallest weights in the model.
         """
         print(f"    Performing pruning attack...")
